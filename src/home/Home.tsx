@@ -24,7 +24,7 @@ const Home: React.FC = () => {
                 <img 
                     className='home__header__image'
                     src={header}
-                    alt='header image'
+                    alt='header'
                 />
                 <div className='home__header__content'>
                     <div className='header__content__text'>

@@ -1,0 +1,20 @@
+.navbar {
+    background-color: #4B37FF;
+    height: 64px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 175px;
+    grid-auto-rows: minmax(64px, auto);
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.navbar__logo {
+    align-self: center;
+}
+
+.navbar__button {
+    align-self: center;
+}
