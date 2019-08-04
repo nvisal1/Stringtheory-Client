@@ -1,0 +1,22 @@
+.header__image {
+    height: 850px;
+    width: 100%;
+    position: relative;
+}
+
+.header__content {
+    position: absolute;
+    top: 100px;
+    right: 300px;
+}
+
+.header__content__text {
+
+}
+
+.header__content__video {
+    
+}
+
+
+
