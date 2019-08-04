@@ -1,0 +1,11 @@
+.display {
+    width: 304px;
+}
+
+.display__header {
+    margin-bottom: 30px;
+}
+
+.display__sub {
+    margin-bottom: 110px;
+}

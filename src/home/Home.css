@@ -8,10 +8,14 @@
     position: absolute;
     top: 100px;
     right: 300px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+    grid-auto-rows: minmax(100px, auto);
 }
 
 .header__content__text {
-
+    
 }
 
 .header__content__video {

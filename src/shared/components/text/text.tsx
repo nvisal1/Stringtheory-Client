@@ -13,9 +13,9 @@ const Text: React.FC<TextProps> = props => {
         fontFamily: 'Arial Black',
     }
     return (
-        <p style={styles}>
+        <div style={styles}>
             {props.text}
-        </p>
+        </div>
     );
 }
 

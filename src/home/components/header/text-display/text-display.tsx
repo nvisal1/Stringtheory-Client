@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from '../../../../shared/components/button/button';
 import './text-display.css';
+import Text from '../../../../shared/components/text/text';
 
 interface TextDisplayProps {
     heading: string;
@@ -12,10 +13,18 @@ const TextDisplay: React.FC<TextDisplayProps> = props => {
     return (
         <div className='display'>
             <div className='display__header'>
-                {props.heading}
+                <Text
+                    text={props.heading}
+                    color='white'
+                    fontSize={36}
+                />
             </div>
             <div className='display__sub'>
-                {props.sub}
+                <Text
+                    text={props.sub}
+                    color='white'
+                    fontSize={18}
+                />
             </div>
             <div className='display__buttons'>
                 <div className='display__buttons__signup'>
