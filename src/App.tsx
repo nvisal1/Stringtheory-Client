@@ -5,7 +5,7 @@ import {
   Route
 } from 'react-router-dom';
 import './App.css';
-import Home from './home/Home';
+import Home from './home/home';
 import history from './history';
 
 const App: React.FC = () => {
