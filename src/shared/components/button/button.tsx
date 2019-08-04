@@ -1,5 +1,5 @@
 import React from 'react';
-import './button.css';
+import Text from '../text/text';
 
 interface ButtonProps {
     text: string;
@@ -21,7 +21,10 @@ const Button: React.FC<ButtonProps> = props => {
     };
     return (
         <button style={styles}>
-            {props.text }
+            <Text
+                text={props.text}
+                color='#4B37FF'
+            />
         </button>
     );
 };
