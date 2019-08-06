@@ -32,6 +32,7 @@ const TextDisplay: React.FC<TextDisplayProps> = props => {
                         text={props.buttonText}
                         height={47}
                         width={202}
+                        fontColor='#4B37FF'
                     />
                 </div>
             </div>

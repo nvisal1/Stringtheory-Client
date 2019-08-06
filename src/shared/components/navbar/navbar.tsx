@@ -26,6 +26,8 @@ export class Navbar extends Component<{}, NavbarState> {
                         borderWidth={2}
                         height={30}
                         width={128}
+                        fontColor='white'
+                        backgroundColor='transparent'
                     />
                 </div>
             </div>
