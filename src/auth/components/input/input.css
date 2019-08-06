@@ -1,0 +1,24 @@
+.input {
+    background-color: #BFC9E7;
+    height: 71px;
+    width: 550px;
+    border-radius: 50px;
+    margin: auto;
+}
+
+.input__element {
+    border: none;
+    color: #6769EC;
+    height: 100%;
+    width: 70%;
+    font-size: 18px;
+    font-family: 'Arial Black';
+    background-color: transparent;
+    margin-left: 40px;
+    outline: none;
+}
+
+::placeholder {
+    color: #6769EC;
+    opacity: 0.5;
+}

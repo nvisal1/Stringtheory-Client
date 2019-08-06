@@ -8,22 +8,30 @@ interface ButtonProps {
     borderWidth?: number;
     height: number;
     width: number;
+    fontSize?: number;
+    fontColor?: string;
 };
 
 const Button: React.FC<ButtonProps> = props => {
     let styles = {
         height: `${props.height}px`,
         width: `${props.width}px`,
-        borderColor: props.borderColor || 'none',
-        borderWidth: `${props.borderWidth}px` || 'none',
         backgroundColor: props.backgroundColor || 'none',
         borderRadius: '5px',
+        border: 'none',
+        cursor: 'pointer'
     };
+
+    if (props.borderColor && props.borderWidth) {
+        styles.border = `${props.borderWidth}px solid ${props.borderColor}`;
+    }
+    
     return (
         <button style={styles}>
             <Text
                 text={props.text}
-                color='#4B37FF'
+                color={props.fontColor || 'white'}
+                fontSize={props.fontSize || 12}
             />
         </button>
     );

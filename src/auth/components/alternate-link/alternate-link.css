@@ -1,0 +1,8 @@
+.alternate-link {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 200px;
+    height: 34px;
+    cursor: pointer;
+}

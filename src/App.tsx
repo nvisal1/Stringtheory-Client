@@ -6,21 +6,42 @@ import {
 } from 'react-router-dom';
 import './App.css';
 import Home from './home/home';
+import Login from './auth/login/login';
+import Register from './auth/register/register';
 import history from './history';
 import { Navbar } from './shared/components/navbar/navbar';
 
 const App: React.FC = () => {
-  return (
+
+  const AuthContainer = () => (
     <div>
-      <Navbar />
-      <Router history={history}>
-          <Switch>
-      
-              <Route exact path="/" component={Home}/>
-          </Switch>
-      </Router>
+      <Route exact path='/login' component={Login}/>
+      <Route exact path='/register' component={Register}/>
     </div>
   )
+
+  const DefaultContainer = () => (
+    <div>
+      <Navbar />
+      <div>
+        <Route exact path='/' component={Home}/>
+      </div>
+    </div>
+  )
+
+  return (
+    <Router history={history}>
+      <Switch>
+        <Route exact path="/login" component={AuthContainer}/>
+        <Route exact path="/register" component={AuthContainer}/>
+        <Route component={DefaultContainer} />
+      </Switch>
+    </Router>
+  );
 }
+
+
+
+
 
 export default App;

@@ -3,8 +3,11 @@ import './video-player.css';
 
 const VideoPlayer: React.FC = () => {
     return (
-        <div className='video-wrapper'>
-        </div>
+        <video
+            className='video'
+            src='http://www.w3schools.com/html/movie.mp4'
+        />
+            
     );
 }
 
