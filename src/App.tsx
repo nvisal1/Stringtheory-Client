@@ -10,6 +10,7 @@ import Login from './auth/login/login';
 import Register from './auth/register/register';
 import history from './history';
 import { Navbar } from './shared/components/navbar/navbar';
+import Curriculum from './curriculum/curriculum';
 
 const App: React.FC = () => {
 
@@ -25,6 +26,7 @@ const App: React.FC = () => {
       <Navbar />
       <div>
         <Route exact path='/' component={Home}/>
+        <Route exact path='/curriculum' component={Curriculum}/>
       </div>
     </div>
   )
