@@ -1,0 +1,10 @@
+.lesson-title {
+    font-family: 'arial';
+    font-size: 36px;
+    font-weight: bold;
+    border-bottom: 1px solid #BFC9E7;
+    padding-bottom: 10px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;  
+}

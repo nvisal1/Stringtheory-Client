@@ -2,6 +2,7 @@ import React from 'react';
 import './course-panel.css';
 import CourseTitle from '../components/course-title/course-title';
 import CourseDescription from '../components/course-description/course-description';
+import CourseLesson from '../components/course-lesson/course-lesson';
 
 interface CoursePanelProps { 
     title: string;
@@ -22,7 +23,7 @@ const CoursePanel: React.FC = props => {
                     description='Course description that is really long'
                 />
            </div>
-            {/* <CourseExercise />  */}
+            <CourseLesson />
         </div>
     )
 }
