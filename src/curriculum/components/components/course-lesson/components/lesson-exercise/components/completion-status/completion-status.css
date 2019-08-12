@@ -2,5 +2,7 @@
     border-radius: 50%;
     height: 30px;
     width: 30px;
-    border: 3px solid #BFC9E7;
+    -webkit-box-shadow:inset 0px 0px 0px 3px #BFC9E7;
+    -moz-box-shadow:inset 0px 0px 0px 3px #BFC9E7;
+    box-shadow:inset 0px 0px 0px 3px #BFC9E7;
 }

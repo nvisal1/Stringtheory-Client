@@ -1,0 +1,28 @@
+.lesson-exercise {
+    display: grid;
+    grid-template-columns: 30px auto 118px;
+    grid-gap: 10px;
+    grid-auto-rows: minmax(30px, auto);
+}
+
+.lesson-exercise__completion-status-container {
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    display: flex;
+}
+
+.lesson-exercise__exercise-title-container {
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    display: flex;
+}
+
+.lesson-exercise__score-container {
+    justify-content: center;
+    align-items: center;
+    justify-self: end;
+    display: flex;
+}
+

@@ -11,11 +11,18 @@ interface LessonExerciseProps {
 const LessonExercise: React.FC = props => {
     return (
         <div className='lesson-exercise'>
-            <CompletionStatus />
-            <ExerciseTitle 
-                title='Exercise Title'
-            />
-            <Score />
+            <div className='lesson-exercise__completion-status-container'>
+                <CompletionStatus />
+            </div>
+            <div className='lesson-exercise__exercise-title-container'>
+                <ExerciseTitle 
+                    title='Exercise Title'
+                />
+            </div>
+            <div className='lesson-exercise__score-container'>
+                <Score />
+            </div>
+            
         </div>
     );
 }

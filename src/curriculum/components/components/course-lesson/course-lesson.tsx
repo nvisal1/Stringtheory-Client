@@ -13,7 +13,9 @@ const CourseLesson: React.FC = props => {
             <LessonTitle 
                 title='Lesson Title'
             />
-            <LessonExercise />
+            <div className='course-lesson__lesson-exercise-container'>
+                <LessonExercise />
+            </div>
         </div>
     )
 }
