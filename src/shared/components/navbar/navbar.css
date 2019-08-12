@@ -1,15 +1,18 @@
 .navbar {
-    background-color: #4B37FF;
+    /* background-color: #4B37FF; */
+    /* background-color: transparent; */
+    background: transparent;
     height: 64px;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 175px;
+
     grid-auto-rows: minmax(64px, auto);
     text-align: center;
     z-index: 1;
-    position: fixed;
+    /* position: fixed; */
+    position: absolute;
     width: 100%;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
 }
 
 .navbar__logo {
