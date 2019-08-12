@@ -1,7 +1,7 @@
 .lesson-exercise {
     display: grid;
     grid-template-columns: 30px auto 118px;
-    grid-gap: 10px;
+    grid-gap: 20px;
     grid-auto-rows: minmax(30px, auto);
 }
 
@@ -15,7 +15,7 @@
 .lesson-exercise__exercise-title-container {
     justify-content: center;
     align-items: center;
-    justify-self: center;
+    justify-self: start;
     display: flex;
 }
 
