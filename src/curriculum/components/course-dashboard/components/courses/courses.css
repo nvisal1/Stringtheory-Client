@@ -1,0 +1,30 @@
+.courses {
+
+}
+
+.courses__title {
+    color: white;
+    margin-top: 80px;
+    font-family: 'arial';
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.courses__cards {
+    margin-top: 10px;
+}
+
+.courses__cards__card {
+    background-color: red;
+    border-radius: 30px;
+    height: 202px;
+    width: 150px;
+    text-align: center;
+    padding: 20px;
+    font-family: 'arial-black';
+    font-size: 18px;
+    color: white;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+}
