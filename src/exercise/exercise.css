@@ -1,0 +1,12 @@
+.exercise {
+    background-color: black;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+}
+
+.exercise__player-container {
+    margin: auto;
+    width: 50%;
+    margin-top: 64px;
+}

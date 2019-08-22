@@ -1,5 +1,4 @@
 .courses {
-
 }
 
 .courses__title {
@@ -11,7 +10,11 @@
 }
 
 .courses__cards {
-    margin-top: 10px;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(202px, auto);
+    grid-gap: 10px;
 }
 
 .courses__cards__card {

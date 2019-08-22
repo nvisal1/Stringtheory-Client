@@ -11,6 +11,33 @@ const Courses: React.FC = () => {
                 <div className='courses__cards__card'>
                     Notes
                 </div>
+                <div className='courses__cards__card'>
+                    Notes
+                </div>
+                <div className='courses__cards__card'>
+                    Notes
+                </div>
+                <div className='courses__cards__card'>
+                    Notes
+                </div>
+                <div className='courses__cards__card'>
+                    Notes
+                </div>
+                <div className='courses__cards__card'>
+                    Notes
+                </div>
+                <div className='courses__cards__card'>
+                    Notes
+                </div>
+                <div className='courses__cards__card'>
+                    Notes
+                </div>
+                <div className='courses__cards__card'>
+                    Notes
+                </div>
+                <div className='courses__cards__card'>
+                    Notes
+                </div>
             </div>
         </div>
     )

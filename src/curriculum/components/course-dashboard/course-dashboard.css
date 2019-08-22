@@ -1,4 +1,7 @@
 .course-dashboard {
     margin-top: 250px;
-    margin-left: 20%;
+    position: absolute;
+    left: 21.5%;
+    height: 100%;
+    overflow: scroll;
 }

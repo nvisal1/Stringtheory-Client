@@ -1,0 +1,30 @@
+.player {
+    border-radius: 50%;
+    height: 900px;
+    width: 900px;
+    background-color: black;
+    -webkit-box-shadow:inset 0px 0px 0px 55px #4B37FF;
+    -moz-box-shadow:inset 0px 0px 0px 55px #4B37FF;
+    box-shadow:inset 0px 0px 0px 55px #4B37FF;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;    
+    box-sizing: border-box;   
+    padding: 150px;
+    text-align: center;
+}
+
+.player__text-container {
+    
+}
+
+.player__strings-container {
+    margin-top: 70px;
+}
+
+.player__stat-box-container {
+    margin-top: 50px;
+}
+
+.player__button-container {
+    margin-top: 30px;
+}

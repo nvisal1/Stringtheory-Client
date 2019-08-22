@@ -1,0 +1,11 @@
+.strings {
+   
+}
+
+.strings__string {
+    border-top: 5px solid white;
+    background-color: black;
+    height: 25px;
+    width: 392px;
+    margin: auto;
+}

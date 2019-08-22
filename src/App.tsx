@@ -11,6 +11,7 @@ import Register from './auth/register/register';
 import history from './history';
 import { Navbar } from './shared/components/navbar/navbar';
 import Curriculum from './curriculum/curriculum';
+import Exercise from './exercise/exercise';
 
 const App: React.FC = () => {
 
@@ -31,11 +32,21 @@ const App: React.FC = () => {
     </div>
   )
 
+  const InteractionContainer = () => (
+    <div>
+      <Navbar />
+      <div>
+        <Route exact path='/exercise' component={Exercise}/>
+      </div>
+    </div>
+  )
+
   return (
     <Router history={history}>
       <Switch>
-        <Route exact path="/login" component={AuthContainer}/>
-        <Route exact path="/register" component={AuthContainer}/>
+        <Route exact path='/login' component={AuthContainer}/>
+        <Route exact path='/register' component={AuthContainer}/>
+        <Route exact path='/exercise' component={InteractionContainer}/>
         <Route component={DefaultContainer} />
       </Switch>
     </Router>
