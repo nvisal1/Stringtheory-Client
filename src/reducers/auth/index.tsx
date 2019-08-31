@@ -1,5 +1,5 @@
 import { 
-    LOGIN, LOGIN_REQUEST,
+    LOGIN, LOGIN_REQUEST, SET_AUTH_ERROR,
 } from '../../actions/constants';
 import {
     login,
@@ -13,7 +13,8 @@ const INITIAL_STATE: AuthState = {
         Username: '',
         Name: '',
         Email: '',
-    }
+    },
+    error: '',
 };  
 
 export default (state = INITIAL_STATE, action: any) => {
@@ -26,7 +27,13 @@ export default (state = INITIAL_STATE, action: any) => {
             return({
                 ...state,
                 isLoading: true,
-            })
+            });
+        case SET_AUTH_ERROR:
+            return({
+                ...state,
+                isLoading: false,
+                error: action.error,
+            });
         default: 
             return state;
     }

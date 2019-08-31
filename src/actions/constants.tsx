@@ -8,3 +8,5 @@ export const LOGOUT = 'LOGOUT';
 export const SET_ERROR = 'SET_ERROR';
 
 export const REFRESH = 'REFRESH';
+
+export const SET_AUTH_ERROR = 'SET_AUTH_ERROR';

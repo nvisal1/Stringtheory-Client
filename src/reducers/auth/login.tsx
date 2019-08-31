@@ -9,7 +9,8 @@ export function login({
     return {
       isLoggedIn: true,
       isLoading: false,
-      userInfo,      
+      userInfo,
+      error: '',  
     }
 }
 

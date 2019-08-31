@@ -4,7 +4,7 @@ import Text from '../../shared/components/text/text';
 import Input from '../components/input/input';
 import Button from '../../shared/components/button/button';
 import AlternateLink from '../components/alternate-link/alternate-link';
-import { Field, reduxForm, WrappedFieldProps, InjectedFormProps } from 'redux-form';
+import { Field, reduxForm, WrappedFieldProps } from 'redux-form';
 import { login } from '../../../actions';
 import { LoginParams } from '../../../shared/interfaces';
 import { connect } from 'react-redux';
@@ -22,6 +22,16 @@ class Login extends Component<any, any> {
             ...formValues
         }
         this.props.login(loginParams);
+    }
+
+    renderHeaderError = (error: string) => {
+        return (
+            <Text 
+                text={error}
+                color='red'
+                fontSize={15}
+            />
+        )
     }
 
     renderError = (meta: any) => {
@@ -51,7 +61,6 @@ class Login extends Component<any, any> {
     };
 
     render() {
-
         return (
             <div className='login'>
                 <div className='login__card'>
@@ -62,6 +71,7 @@ class Login extends Component<any, any> {
                             fontSize={48}
                         />
                     </div>
+                    {this.renderHeaderError(this.props.authError)}
                     <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
                         <div className='login__card__input-fields-container'>
                             <div className='input-fields__input-container'>
@@ -69,7 +79,6 @@ class Login extends Component<any, any> {
                                     name='Username'
                                     component={this.renderInput}
                                     label='username'
-                                    type='text'
                                 />
                             </div>
                             <div className='input-fields__input-container'>
@@ -77,7 +86,6 @@ class Login extends Component<any, any> {
                                     name='Password'
                                     component={this.renderInput}
                                     label='password'
-                                    type='password'
                                 />
                             </div>
                         </div>
@@ -105,7 +113,10 @@ class Login extends Component<any, any> {
 }
 
 const mapStateToProps = (state: any) => {
-    return { isLoading: state.auth.isLoading };
+    return { 
+        isLoading: state.auth.isLoading,
+        authError: state.auth.error,
+    };
 }
 
 const validate = (formValues: any) => {
