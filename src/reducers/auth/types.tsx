@@ -1,9 +1,8 @@
+import { UserInfo } from "../../shared/interfaces";
+
+
 export interface AuthState {
     isLoggedIn: boolean;
     isLoading: boolean;
-    userInfo: {
-        username: string;
-        name: string;
-        email: string;
-    }
+    userInfo: UserInfo;
 }

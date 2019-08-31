@@ -10,9 +10,9 @@ const INITIAL_STATE: AuthState = {
     isLoggedIn: false,
     isLoading: false,
     userInfo: {
-        username: '',
-        name: '',
-        email: '',
+        Username: '',
+        Name: '',
+        Email: '',
     }
 };  
 

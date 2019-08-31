@@ -4,6 +4,7 @@ import { EventOrValueHandler } from 'redux-form';
 
 interface InputProps {
     placeholder: string;
+    type: string;
     value?: string;
     onChange?: EventOrValueHandler<ChangeEvent<any>>;
     onFocus?: EventOrValueHandler<FocusEvent<any>>;
@@ -14,7 +15,7 @@ const Input: React.FC<InputProps> = props => {
         <div className='input'>
             <input 
                 className='input__element'
-                type='text'
+                type={props.type}
                 placeholder={props.placeholder}
                 value={props.value}
                 onChange={props.onChange}

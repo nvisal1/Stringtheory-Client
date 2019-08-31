@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { 
   Router,
   Switch,
@@ -12,17 +12,23 @@ import history from '../history';
 import { Navbar } from './shared/components/navbar/navbar';
 import Curriculum from './curriculum/curriculum';
 import Exercise from './exercise/exercise';
+import { mapDispatchToProps } from '../actions';
+import { connect } from 'react-redux';
 
-const App: React.FC = () => {
+class App extends Component<any, any>  {
 
-  const AuthContainer = () => (
+  componentDidMount() {
+    this.props.loadUserFromToken();
+  }
+
+  AuthContainer = () => (
     <div>
       <Route exact path='/login' component={Login}/>
       <Route exact path='/register' component={Register}/>
     </div>
   )
 
-  const DefaultContainer = () => (
+  DefaultContainer = () => (
     <div>
       <Navbar />
       <div>
@@ -32,7 +38,7 @@ const App: React.FC = () => {
     </div>
   )
 
-  const InteractionContainer = () => (
+  InteractionContainer = () => (
     <div>
       <Navbar />
       <div>
@@ -41,20 +47,18 @@ const App: React.FC = () => {
     </div>
   )
 
-  return (
-    <Router history={history}>
-      <Switch>
-        <Route exact path='/login' component={AuthContainer}/>
-        <Route exact path='/register' component={AuthContainer}/>
-        <Route exact path='/exercise' component={InteractionContainer}/>
-        <Route component={DefaultContainer} />
-      </Switch>
-    </Router>
-  );
+  render() {
+    return (
+      <Router history={history}>
+        <Switch>
+          <Route exact path='/login' component={this.AuthContainer}/>
+          <Route exact path='/register' component={this.AuthContainer}/>
+          <Route exact path='/exercise' component={this.InteractionContainer}/>
+          <Route component={this.DefaultContainer} />
+        </Switch>
+      </Router>
+    );
+  }
 }
 
-
-
-
-
-export default App;
+export default connect(null, mapDispatchToProps)(App);

@@ -6,3 +6,5 @@ export const LOGIN_REQUEST = 'LOGIN_REQUEST';
 
 export const LOGOUT = 'LOGOUT';
 export const SET_ERROR = 'SET_ERROR';
+
+export const REFRESH = 'REFRESH';

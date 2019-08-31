@@ -29,7 +29,7 @@ const Register: React.FC = () => {
                     />
                 </div>
                 <div className='register__card__input-fields-container'>
-                    <div className='input-fields__input-container'>
+                    {/* <div className='input-fields__input-container'>
                         <Input
                             placeholder={INPUT_FIELD_PLACEHOLDER_TEXT.Username}
                         />
@@ -43,7 +43,7 @@ const Register: React.FC = () => {
                         <Input
                             placeholder={INPUT_FIELD_PLACEHOLDER_TEXT.Confirm}
                         />
-                    </div>
+                    </div> */}
                 </div>
                 <div className='register__card__button-container'>
                     <Button 

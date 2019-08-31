@@ -4,7 +4,7 @@ export interface LoginParams {
 }
 
 export interface UserInfo {
-    username: string;
-    name: string;
-    email: string;
+    Username: string;
+    Name: string;
+    Email: string;
 }

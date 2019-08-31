@@ -1,9 +1,13 @@
-import { LOGIN, LOGIN_REQUEST } from './constants';
+import { LOGIN, LOGIN_REQUEST, REFRESH } from './constants';
 import server from '../shared/server';
-import { LoginParams } from '../shared/interfaces';
+import { LoginParams, UserInfo } from '../shared/interfaces';
 import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import decode from 'jwt-decode';
+
+interface TokenData {
+    user: UserInfo;
+}
 
 export function login(
     params: LoginParams
@@ -14,16 +18,29 @@ export function login(
         });
         const response = await server.post('/login', params);
 
-        const userInfo = decode(response.data.Token);
+        const tokenData: TokenData = decode(response.data.Token);
+        sessionStorage.setItem('Token', response.data.Token);
         dispatch({
             type: LOGIN,
-            userInfo,
+            userInfo: tokenData.user,
         });
     }
 }
 
-// export function login(LoginParams: LoginParams) {
-//     return {
-//         type: LOGIN,
-//     }
-// }
+export function mapDispatchToProps(dispatch: any){
+  return {
+  	 loadUserFromToken: () => {
+  	 	let token = sessionStorage.getItem('Token');
+  	 	if(!token || token === '') {
+  	 		return;
+  	 	}
+        const tokenData: TokenData = decode(token);
+        dispatch({
+            type: LOGIN,
+            userInfo:  tokenData.user,
+        });
+  	 },
+  }
+}
+
+

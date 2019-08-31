@@ -1,5 +1,7 @@
 import React from 'react';
 import Text from '../text/text';
+import Lottie from 'react-lottie'
+import animationData from '../../animations/892-loading-icon.json';
 
 interface ButtonProps {
     text: string;
@@ -10,6 +12,7 @@ interface ButtonProps {
     width: number;
     fontSize?: number;
     fontColor?: string;
+    isLoading?: boolean;
 };
 
 const Button: React.FC<ButtonProps> = props => {
@@ -25,7 +28,28 @@ const Button: React.FC<ButtonProps> = props => {
     if (props.borderColor && props.borderWidth) {
         styles.border = `${props.borderWidth}px solid ${props.borderColor}`;
     }
+
+    const defaultOptions = {
+        loop: true,
+        autoplay: true, 
+        animationData: animationData,
+        rendererSettings: {
+          preserveAspectRatio: 'xMidYMid slice'
+        },
+    };
     
+    if (props.isLoading) {
+        return (
+            <button style={styles} disabled>
+                <Lottie options={defaultOptions}
+                    height={65}
+                    width={65}
+                    speed={5}
+                    isClickToPauseDisabled
+                />
+            </button>
+        )
+    } 
     return (
         <button style={styles}>
             <Text
@@ -35,6 +59,8 @@ const Button: React.FC<ButtonProps> = props => {
             />
         </button>
     );
+
+    
 };
 
 export default Button;

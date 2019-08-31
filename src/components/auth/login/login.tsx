@@ -8,7 +8,6 @@ import { Field, reduxForm, WrappedFieldProps, InjectedFormProps } from 'redux-fo
 import { login } from '../../../actions';
 import { LoginParams } from '../../../shared/interfaces';
 import { connect } from 'react-redux';
-import { directive } from '@babel/types';
 
 const HEADER_TEXT = 'Login';
 
@@ -44,6 +43,7 @@ class Login extends Component<any, any> {
                     onChange={formProps.input!.onChange}
                     onFocus={formProps.input!.onFocus}
                     placeholder={formProps.input!.name}
+                    type={formProps.input!.name}
                 />
                 {this.renderError(formProps.meta)}
             </div>
@@ -51,58 +51,56 @@ class Login extends Component<any, any> {
     };
 
     render() {
-        if (!this.props.isLoading) {
-            return (
-                <div className='login'>
-                    <div className='login__card'>
-                        <div className='login__card__header'>
-                            <Text 
-                                text={HEADER_TEXT}
-                                color='#6769EC'
-                                fontSize={48}
+
+        return (
+            <div className='login'>
+                <div className='login__card'>
+                    <div className='login__card__header'>
+                        <Text 
+                            text={HEADER_TEXT}
+                            color='#6769EC'
+                            fontSize={48}
+                        />
+                    </div>
+                    <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
+                        <div className='login__card__input-fields-container'>
+                            <div className='input-fields__input-container'>
+                                <Field 
+                                    name='Username'
+                                    component={this.renderInput}
+                                    label='username'
+                                    type='text'
+                                />
+                            </div>
+                            <div className='input-fields__input-container'>
+                                <Field 
+                                    name='Password'
+                                    component={this.renderInput}
+                                    label='password'
+                                    type='password'
+                                />
+                            </div>
+                        </div>
+                        <div className='login__card__button-container'>
+                            <Button 
+                                text={BUTTON_TEXT}
+                                height={82}
+                                width={217}
+                                backgroundColor='#6769EC'
+                                fontColor='white'
+                                fontSize={24}
+                                isLoading={this.props.isLoading}
                             />
                         </div>
-                        <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-                            <div className='login__card__input-fields-container'>
-                                <div className='input-fields__input-container'>
-                                    <Field 
-                                        name='Username'
-                                        component={this.renderInput}
-                                        label='username'
-                                        type='text'
-                                    />
-                                </div>
-                                <div className='input-fields__input-container'>
-                                    <Field 
-                                        name='Password'
-                                        component={this.renderInput}
-                                        label='password'
-                                        type='password'
-                                    />
-                                </div>
-                            </div>
-                            <div className='login__card__button-container'>
-                                <Button 
-                                    text={BUTTON_TEXT}
-                                    height={82}
-                                    width={217}
-                                    backgroundColor='#6769EC'
-                                    fontColor='white'
-                                    fontSize={24}
-                                />
-                            </div>
-                            <div className='login__card-alternate-text-container'>
-                                <AlternateLink
-                                    text={ALTERNATE_LINK_TEXT}
-                                />
-                            </div>
-                        </form>
-                    </div>
+                        <div className='login__card-alternate-text-container'>
+                            <AlternateLink
+                                text={ALTERNATE_LINK_TEXT}
+                            />
+                        </div>
+                    </form>
                 </div>
-            );
-        } else {
-            return (<div>Loading</div>)
-        }
+            </div>
+        );
     }
 }
 
