@@ -1,26 +1,32 @@
 import { 
-    LOGIN,
+    LOGIN, LOGIN_REQUEST,
 } from '../../actions/constants';
 import {
     login,
 } from './login';
 import { AuthState } from './types';
-import { Login } from '../../actions/interfaces';
 
 const INITIAL_STATE: AuthState = {
     isLoggedIn: false,
+    isLoading: false,
     userInfo: {
         username: '',
+        name: '',
+        email: '',
     }
 };  
 
-export default (state = INITIAL_STATE, action: Login) => {
+export default (state = INITIAL_STATE, action: any) => {
     switch (action.type) {
         case LOGIN: 
             return login({
-                state,
                 userInfo: action.userInfo,
             });
+        case LOGIN_REQUEST:
+            return({
+                ...state,
+                isLoading: true,
+            })
         default: 
             return state;
     }

@@ -2,14 +2,13 @@ import { UserInfo } from '../../shared/interfaces';
 import { AuthState } from './types';
 
 export function login({
-    state,
     userInfo
 }: {
-    state: AuthState,
     userInfo: UserInfo
-}) {
+}): AuthState {
     return {
       isLoggedIn: true,
+      isLoading: false,
       userInfo,      
     }
 }
