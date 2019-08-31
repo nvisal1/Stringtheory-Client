@@ -11,7 +11,7 @@ import {
 import reduxThunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 
-const composeEnchancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__|| compose;
+const composeEnchancers = (window && (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 const store = createStore(reducers, composeEnchancers(applyMiddleware(reduxThunk)));
 
 ReactDOM.render(

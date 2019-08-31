@@ -5,6 +5,6 @@ import userReducer from './auth';
 export default combineReducers({
     form: formReducer,
     auth: userReducer,
-    courses: courseReducer,
-    errors:  errorReducer,
+    // courses: courseReducer,
+    // errors:  errorReducer,
 });
