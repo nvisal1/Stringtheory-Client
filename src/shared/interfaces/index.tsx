@@ -3,6 +3,13 @@ export interface LoginParams {
     password: string;
 }
 
+export interface RegisterParams {
+    username: string;
+    password: string;
+    email: string;
+    name: string;
+}
+
 export interface UserInfo {
     Username: string;
     Name: string;

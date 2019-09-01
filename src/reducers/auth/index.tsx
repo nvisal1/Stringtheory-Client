@@ -1,5 +1,5 @@
 import { 
-    LOGIN, LOGIN_REQUEST, SET_AUTH_ERROR,
+    LOGIN, REQUEST, SET_AUTH_ERROR, REGISTER,
 } from '../../actions/constants';
 import {
     login,
@@ -23,7 +23,14 @@ export default (state = INITIAL_STATE, action: any) => {
             return login({
                 userInfo: action.userInfo,
             });
-        case LOGIN_REQUEST:
+        case REGISTER:
+            return ({
+                isLoggedIn: true,
+                isLoading: false,
+                userInfo: action.userInfo,
+                error: '',
+            });
+        case REQUEST:
             return({
                 ...state,
                 isLoading: true,

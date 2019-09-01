@@ -30,14 +30,9 @@
 }
 
 .input-fields__input-container {
-    margin-bottom: 50px;
+    margin-bottom: 40px;
 }
 
 .register__card__button-container {
-    text-align: center;
-}
-
-.register__card-alternate-text-container {
-    margin-top: 20px;
     text-align: center;
 }

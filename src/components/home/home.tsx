@@ -34,9 +34,9 @@ const Home: React.FC = () => {
                             buttonText={HEADER_TEXT.buttonText}
                         />
                     </div>
-                    <div className='header__content__video'>
+                    {/* <div className='header__content__video'>
                         <VideoPlayer/>
-                    </div>
+                    </div> */}
                 </div>
             </div>
             <div className='home__body'>
