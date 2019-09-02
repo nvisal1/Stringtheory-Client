@@ -6,6 +6,8 @@ import VideoPlayer from './components/header/video-player/video-player';
 import TextDisplay from './components/header/text-display/text-display';
 import Text from '../shared/components/text/text';
 import Footer from './components/footer/footer';
+import Lottie from 'react-lottie'
+import animationData from '../shared/animations/animation-w400-h400.json';
 
 const HEADER_TEXT = {
     heading: 'Behold Electric Guitar',
@@ -15,8 +17,19 @@ const HEADER_TEXT = {
 
 const BODY_TEXT = {
     display: 'Learn electric guitar the right way',
+    footnote: 'Works With Footnote',
+    footnoteDescription: 'Use Footnote to play along with Stringtheory Lessons. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere debitis consequuntur perspiciatis et perferendis commodi, architecto sequi asperiores, nam ad incidunt ab aliquid quae deserunt ut eveniet quas, voluptates quaerat?',
     action: 'For those about to rock...',
 }
+
+const defaultOptions = {
+    loop: true,
+    autoplay: true, 
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    },
+};
 
 const Home: React.FC = () => {
     return (
@@ -66,7 +79,30 @@ const Home: React.FC = () => {
                     </div>
                 </div>
                 <div className='home__body__footnote-container'>
-
+                    <div className='body__footnote-container__animation-container'>
+                        <Lottie options={defaultOptions}
+                            height={800}
+                            width={800}
+                            speed={10}
+                            isClickToPauseDisabled
+                        />
+                    </div>
+                    <div className='body__footnote-container__text-container'>
+                        <div className='footnote-container__text-container__header'>
+                            <Text
+                                text={BODY_TEXT.footnote}
+                                color='white'
+                                fontSize={36}
+                            />
+                        </div>
+                        <div>
+                            <Text
+                                text={BODY_TEXT.footnoteDescription}
+                                color='white'
+                                fontSize={18}
+                            />
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className='home__action'>
