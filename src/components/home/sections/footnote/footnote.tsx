@@ -11,8 +11,8 @@ const FOOTNOTE_TEXT = {
 
 const Footnote: React.FC = () => {
     return (
-        <div className='home__body__footnote-container'>
-            <div className='body__footnote-container__animation-container'>
+        <div className='footnote'>
+            <div className='footnote__animation-container'>
                 <Animation 
                     animationData={ animationData }
                     height={ 800 }
@@ -20,8 +20,8 @@ const Footnote: React.FC = () => {
                     speed={ 1 }
                 />
             </div>
-            <div className='body__footnote-container__text-container'>
-                <div className='footnote-container__text-container__header'>
+            <div className='footnote__text-container'>
+                <div className='footnote__text-container__header'>
                     <Text
                         text={ FOOTNOTE_TEXT.title }
                         color='white'

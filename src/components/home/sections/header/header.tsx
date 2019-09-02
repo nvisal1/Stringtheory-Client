@@ -1,6 +1,5 @@
 import React from 'react';
 import './header.css';
-import VideoPlayer from '../../components/video-player/video-player';
 import TextDisplay from '../../components/text-display/text-display';
 import header from '../../../shared/images/header.png';
 
@@ -12,26 +11,26 @@ const HEADER_TEXT = {
 
 const Header: React.FC = () => {
     return (
-        <div className='home__header'>
+        <div className='home-header'>
             <img 
-                className='home__header__image'
+                className='home-header__image'
                 src={header}
                 alt='header'
             />
-            <div className='home__header__content'>
-                <div className='header__content__text'>
+            <div className='home-header__content'>
+                <div className='home-header__content__text'>
                     <TextDisplay
                         heading={HEADER_TEXT.heading}
                         sub={HEADER_TEXT.sub}
                         buttonText={HEADER_TEXT.buttonText}
                     />
                 </div>
-                {/* <div className='header__content__video'>
+                {/* <div className='home-header__content__video'>
                     <VideoPlayer/>
                 </div> */}
             </div>
         </div>
-    )
+    );
 };
 
 export default Header;

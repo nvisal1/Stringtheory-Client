@@ -11,19 +11,20 @@ const ACTION_TEXT = {
 
 const Action: React.FC = () => {
     return (
-        <div className='home__action'>
+        <div className='action'>
             <img 
-                className='home__action__image'
+                className='action__image'
                 src={bottom}
+                alt='action'
             />
-            <div className='home__action__title'>
+            <div className='action__title'>
                 <Text
                     text={ACTION_TEXT.prompt}
                     color='#4B37FF'
                     fontSize={36}
                 />
             </div>
-            <div className='home__action__button'>
+            <div className='action__button'>
                 <Button 
                     text={ACTION_TEXT.button}
                     height={86}

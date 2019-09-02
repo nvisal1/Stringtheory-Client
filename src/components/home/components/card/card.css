@@ -6,12 +6,12 @@
     box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
-.body__card__content-container {
+.card__content-container {
     margin-left: 50px;
     margin-right: 50px;
 }
 
-.body__card__header {
+.card__content-container__header {
     text-align: center;
     padding-bottom: 30px;
     border-bottom: 1px solid #BFC9E7;

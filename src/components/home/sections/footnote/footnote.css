@@ -1,4 +1,4 @@
-.home__body__footnote-container {
+.footnote {
     background-color: black;
     height: 1200px;
     display: grid;
@@ -7,18 +7,18 @@
     grid-gap: 5px;
 }
 
-.body__footnote-container__animation-container {
+.footnote__animation-container {
    margin-top: 300px;
    height: 800px;
    width: 800px;
 }
 
-.body__footnote-container__text-container {
+.footnote__text-container {
     margin-top: 400px;
     margin-right: 250px;
 }
 
-.footnote-container__text-container__header {
+.footnote__text-container__header {
     text-align: right;
     margin-bottom: 50px;
 }

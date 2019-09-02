@@ -1,19 +1,19 @@
-.home__action {
+.action {
     height: 700px;
     background-color: white;
 }
 
-.home__action__image {
+.action__image {
     height: auto;
     width: 100%;
     position: relative;
 }
 
-.home__action__title {
+.action__title {
     text-align: center;
     margin-bottom: 30px;
 }
 
-.home__action__button {
+.action__button {
     text-align: center;
 }

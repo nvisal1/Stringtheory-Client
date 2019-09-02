@@ -13,12 +13,6 @@ import { mapStateToProps } from '../../functions/mapStateToProps/mapStateToProps
 
 const HEADER_TEXT = 'Register';
 
-const INPUT_FIELD_PLACEHOLDER_TEXT = {
-    Username: 'Username',
-    Password: 'Password',
-    Confirm: 'Confirm Password',
-}
-
 const BUTTON_TEXT = 'Join!';
 
 const ALTERNATE_LINK_TEXT = 'Login';

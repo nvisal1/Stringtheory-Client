@@ -24,19 +24,19 @@ const Card: React.FC<CardProps> = props => {
                 width={ 120}
                 speed={ 1 }
             />
-            <div className='body__card__content-container'>
-                <div className='body__card__header'>
+            <div className='card__content-container'>
+                <div className='card__content-container__header'>
                     <Text
                         text={ props.headerText }
                         color={ props.fontColor }
-                        fontSize={24}
+                        fontSize={ 24 }
                     />
                 </div>
-                <div className='body__card__description'>
+                <div className='card__content-container__description'>
                     <Text
                         text={ props.descriptionText }
                         color={ props.fontColor }
-                        fontSize={14}
+                        fontSize={ 14 }
                     />
                 </div>
             </div>

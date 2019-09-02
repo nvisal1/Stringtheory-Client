@@ -1,19 +1,19 @@
-.home__body__title {
+.features__title {
     text-align: center;
 }
 
-.home__body__feature-container {
+.features__feature-container {
     height: 800px;
     position: relative;
 }
 
-.home__body__image {
+.features__feature-container__image {
     height: auto;
     width: 100%;
     position: relative;
 }
 
-.home__body__card-container {
+.features__feature-container__card-container{
     position: absolute;
     display: grid;
     grid-template-columns: repeat(3, 1fr);

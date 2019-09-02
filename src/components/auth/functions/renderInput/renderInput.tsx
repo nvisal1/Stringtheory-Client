@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { WrappedFieldProps } from 'redux-form';
 import Input from '../../components/input/input';
 import Text from '../../../shared/components/text/text';

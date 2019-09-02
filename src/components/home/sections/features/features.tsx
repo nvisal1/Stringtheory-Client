@@ -57,20 +57,21 @@ const renderCardList = () => {
 
 const Features: React.FC = () => {
     return (
-        <div>
-            <div className='home__body__title'>
+        <div className='features'>
+            <div className='features__title'>
                 <Text
                     text={FEATURES_TEXT.display}
                     color='#4B37FF'
                     fontSize={48}
                 />
             </div>
-            <div className='home__body__feature-container'>
+            <div className='features__feature-container'>
                 <img 
-                    className='home__body__image'
+                    className='features__feature-container__image'
                     src={body}
+                    alt='features'
                 />
-                <div className='home__body__card-container'>
+                <div className='features__feature-container__card-container'>
                     { renderCardList() }
                 </div>
             </div>
