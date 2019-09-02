@@ -1,6 +1,7 @@
 import React from 'react';
 import './home.css';
 import header from '../shared/images/header.png';
+import body from '../shared/images/home-body-background.png';
 import VideoPlayer from './components/header/video-player/video-player';
 import TextDisplay from './components/header/text-display/text-display';
 import Text from '../shared/components/text/text';
@@ -44,8 +45,28 @@ const Home: React.FC = () => {
                     <Text
                         text={BODY_TEXT.display}
                         color='#4B37FF'
-                        fontSize={36}
+                        fontSize={48}
                     />
+                </div>
+                <div className='home__body__feature-container'>
+                    <img 
+                        className='home__body__image'
+                        src={body}
+                    />
+                    <div className='home__body__card-container'>
+                        <div className='home__body__card'>
+
+                        </div>
+                        <div className='home__body__card'>
+
+                        </div>
+                        <div className='home__body__card'>
+
+                        </div>
+                    </div>
+                </div>
+                <div className='home__body__footnote-container'>
+
                 </div>
             </div>
             <div className='home__action'>

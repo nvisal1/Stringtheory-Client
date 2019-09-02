@@ -6,8 +6,8 @@ import {
 } from 'react-router-dom';
 import './App.css';
 import Home from './home/home';
-import Login from './auth/login/login';
-import Register from './auth/register/register';
+import Login from './auth/pages/login/login';
+import Register from './auth/pages/register/register';
 import history from '../history';
 import { Navbar } from './shared/components/navbar/navbar';
 import Curriculum from './curriculum/curriculum';

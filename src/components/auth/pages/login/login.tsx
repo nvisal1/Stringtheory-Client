@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './login.css';
-import Text from '../../shared/components/text/text';
-import Input from '../components/input/input';
-import Button from '../../shared/components/button/button';
-import AlternateLink from '../components/alternate-link/alternate-link';
-import { Field, reduxForm, WrappedFieldProps } from 'redux-form';
-import { login } from '../../../actions';
-import { LoginParams } from '../../../shared/interfaces';
+import Text from '../../../shared/components/text/text';
+import Button from '../../../shared/components/button/button';
+import AlternateLink from '../../components/alternate-link/alternate-link';
+import { Field, reduxForm } from 'redux-form';
+import { login } from '../../../../actions';
+import { LoginParams } from '../../../../shared/interfaces';
 import { connect } from 'react-redux';
+import { renderHeaderError, renderInput } from '../../functions';
+import { validate } from '../../form-validators';
+import { mapStateToProps } from '../../functions/mapStateToProps/mapStateToProps';
 
 const HEADER_TEXT = 'Login';
 
@@ -24,42 +26,6 @@ class Login extends Component<any, any> {
         this.props.login(loginParams);
     }
 
-    renderHeaderError = (error: string) => {
-        return (
-            <Text 
-                text={error}
-                color='red'
-                fontSize={15}
-            />
-        )
-    }
-
-    renderError = (meta: any) => {
-        if (meta.visited) {
-            return (
-                <Text
-                    text={meta.error}
-                    color='black'
-                />
-            );
-        }
-    }
-
-    renderInput = (formProps: WrappedFieldProps) => {
-        return (
-            <div>
-                <Input 
-                    value={formProps.input!.value}
-                    onChange={formProps.input!.onChange}
-                    onFocus={formProps.input!.onFocus}
-                    placeholder={formProps.input!.name}
-                    type={formProps.input!.name}
-                />
-                {this.renderError(formProps.meta)}
-            </div>
-        );
-    };
-
     render() {
         return (
             <div className='login'>
@@ -71,20 +37,20 @@ class Login extends Component<any, any> {
                             fontSize={48}
                         />
                     </div>
-                    {this.renderHeaderError(this.props.authError)}
+                    {renderHeaderError(this.props.authError)}
                     <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
                         <div className='login__card__input-fields-container'>
                             <div className='input-fields__input-container'>
                                 <Field 
                                     name='Username'
-                                    component={this.renderInput}
+                                    component={renderInput}
                                     label='username'
                                 />
                             </div>
                             <div className='input-fields__input-container'>
                                 <Field 
                                     name='Password'
-                                    component={this.renderInput}
+                                    component={renderInput}
                                     label='password'
                                 />
                             </div>
@@ -110,30 +76,6 @@ class Login extends Component<any, any> {
             </div>
         );
     }
-}
-
-const mapStateToProps = (state: any) => {
-    return { 
-        isLoading: state.auth.isLoading,
-        authError: state.auth.error,
-    };
-}
-
-const validate = (formValues: any) => {
-    const errors = {
-        Username: '',
-        Password: '',
-    };
-
-    if (!formValues.Username) {
-        errors.Username = 'Please enter a username.';
-    }
-
-    if (!formValues.Password) {
-        errors.Password = 'Please provide a password.';
-    }
-
-    return errors;
 }
 
 export default connect(mapStateToProps, { login })(reduxForm({

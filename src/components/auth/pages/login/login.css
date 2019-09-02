@@ -1,38 +1,47 @@
-.register {
+.login {
     top: 0;
     left: 0;
     position: fixed;
     min-width: 100%;
     min-height: 100%;
-    background: url('../../shared/images/register.png');
+    background: url('../../../shared/images/login.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover; 
 }
 
-.register__card {
+.login__card {
     background-color: white;
     position: absolute;
-    right: 0;
+    left: 0;
     bottom: 0;
     height: 875px;
     width: 678px;
-    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
 }
 
-.register__card__header {
+.login__card__header {
     margin-top: 50px;
     text-align: center;
 }
 
-.register__card__input-fields-container {
+.login__card__input-fields-container {
     margin-top: 65px;
 }
 
 .input-fields__input-container {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
 }
 
-.register__card__button-container {
+.login__card__button-container {
     text-align: center;
+}
+
+.login__card-alternate-text-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.lottie {
+    background-color: black;
 }
