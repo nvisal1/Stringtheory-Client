@@ -5,7 +5,7 @@ import {
   Route
 } from 'react-router-dom';
 import './App.css';
-import Home from './home/home';
+import Home from './home/pages/home';
 import Login from './auth/pages/login/login';
 import Register from './auth/pages/register/register';
 import history from '../history';

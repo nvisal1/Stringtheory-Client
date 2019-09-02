@@ -1,7 +1,7 @@
 import React from 'react';
-import Button from '../../../../shared/components/button/button';
+import Button from '../../../shared/components/button/button';
 import './text-display.css';
-import Text from '../../../../shared/components/text/text';
+import Text from '../../../shared/components/text/text';
 
 interface TextDisplayProps {
     heading: string;
