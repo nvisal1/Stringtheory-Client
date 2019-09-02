@@ -1,0 +1,25 @@
+.home__body__title {
+    text-align: center;
+}
+
+.home__body__feature-container {
+    height: 800px;
+    position: relative;
+}
+
+.home__body__image {
+    height: auto;
+    width: 100%;
+    position: relative;
+}
+
+.home__body__card-container {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 40px;
+    grid-gap: 94px;
+    top: 200px;
+    left: 15%;
+    margin-left: -50px;
+}

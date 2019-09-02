@@ -13,7 +13,7 @@ const Action: React.FC = () => {
     return (
         <div className='home__action'>
             <img 
-                className='home__body__image'
+                className='home__action__image'
                 src={bottom}
             />
             <div className='home__action__title'>

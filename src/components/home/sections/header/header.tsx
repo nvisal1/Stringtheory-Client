@@ -1,7 +1,7 @@
 import React from 'react';
 import './header.css';
-import VideoPlayer from '../video-player/video-player';
-import TextDisplay from '../text-display/text-display';
+import VideoPlayer from '../../components/video-player/video-player';
+import TextDisplay from '../../components/text-display/text-display';
 import header from '../../../shared/images/header.png';
 
 const HEADER_TEXT = {
