@@ -2,12 +2,14 @@ import React from 'react';
 import './home.css';
 import header from '../shared/images/header.png';
 import body from '../shared/images/home-body-background.png';
+import bottom from '../shared/images/home-body-background-bottom.png';
 import VideoPlayer from './components/header/video-player/video-player';
 import TextDisplay from './components/header/text-display/text-display';
 import Text from '../shared/components/text/text';
 import Footer from './components/footer/footer';
 import Lottie from 'react-lottie'
 import animationData from '../shared/animations/animation-w400-h400.json';
+import Button from '../shared/components/button/button';
 
 const HEADER_TEXT = {
     heading: 'Behold Electric Guitar',
@@ -18,8 +20,12 @@ const HEADER_TEXT = {
 const BODY_TEXT = {
     display: 'Learn electric guitar the right way',
     footnote: 'Works With Footnote',
-    footnoteDescription: 'Use Footnote to play along with Stringtheory Lessons. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere debitis consequuntur perspiciatis et perferendis commodi, architecto sequi asperiores, nam ad incidunt ab aliquid quae deserunt ut eveniet quas, voluptates quaerat?',
+    footnoteDescription: 'Use Footnote to play along with Stringtheory Lessons. Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere debitis consequuntur perspiciatis et perferendis commodi, architecto sequi asperiores, nam ad incidunt ab aliquid quae deserunt ut eveniet quas, voluptates quaerat? Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere debitis consequuntur perspiciatis et perferendis commodi, architecto sequi asperiores, nam ad incidunt ab aliquid quae deserunt ut eveniet quas, voluptates quaerat?',
     action: 'For those about to rock...',
+}
+
+const ACTION_TEXT = {
+    button: 'Start your journey',
 }
 
 const defaultOptions = {
@@ -106,11 +112,25 @@ const Home: React.FC = () => {
                 </div>
             </div>
             <div className='home__action'>
+                <img 
+                    className='home__body__image'
+                    src={bottom}
+                />
                 <div className='home__action__title'>
                     <Text
                         text={BODY_TEXT.action}
                         color='#4B37FF'
                         fontSize={36}
+                    />
+                </div>
+                <div className='home__action__button'>
+                    <Button 
+                        text={ACTION_TEXT.button}
+                        height={86}
+                        width={300}
+                        backgroundColor='#4B37FF'
+                        fontColor='white'
+                        fontSize={24}
                     />
                 </div>
             </div>
