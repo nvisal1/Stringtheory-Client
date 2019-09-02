@@ -54,13 +54,13 @@ const Home: React.FC = () => {
                         src={body}
                     />
                     <div className='home__body__card-container'>
-                        <div className='home__body__card'>
+                        <div className='home__body__card-1'>
 
                         </div>
-                        <div className='home__body__card'>
+                        <div className='home__body__card-2'>
 
                         </div>
-                        <div className='home__body__card'>
+                        <div className='home__body__card-3'>
 
                         </div>
                     </div>

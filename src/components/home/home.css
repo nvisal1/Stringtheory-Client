@@ -45,19 +45,38 @@
     position: absolute;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(64px, auto);
+    grid-auto-rows: 40px;
     grid-gap: 94px;
-    top: 300px;
+    top: 200px;
     left: 15%;
     margin-left: -50px;
 }
 
-.home__body__card {
+.home__body__card-1 {
     height: 400px;
     width: 350px;
     background-color: white;
     border-radius: 5px;
-    margin: auto;
+    grid-row-start: 3;
+    grid-column-start: 1;
+}
+
+.home__body__card-2 {
+    height: 400px;
+    width: 350px;
+    background-color: white;
+    border-radius: 5px;
+    grid-row-start: 2;
+    grid-column-start: 2;
+}
+
+.home__body__card-3 {
+    height: 400px;
+    width: 350px;
+    background-color: white;
+    border-radius: 5px;
+    grid-row-start: 1;
+    grid-column-start: 3;
 }
 
 .home__body__footnote-container {
