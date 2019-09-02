@@ -12,8 +12,12 @@ export interface CardProps {
 };
 
 const Card: React.FC<CardProps> = props => {
+    const style = {
+        backgroundColor: props.backgroundColor
+    };
+
     return (
-        <div className='home__body__card-1'>
+        <div className='card' style={ style }>
             <Animation 
                 animationData={ props.animationData } 
                 height={ 120 }
