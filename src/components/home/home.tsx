@@ -9,6 +9,9 @@ import Text from '../shared/components/text/text';
 import Footer from './components/footer/footer';
 import Lottie from 'react-lottie'
 import animationData from '../shared/animations/animation-w400-h400.json';
+import card1Data from '../shared/animations/animation-w500-h500.json';
+import card2Data from '../shared/animations/animation-w800-h600.json';
+import card3Data from '../shared/animations/animation-w1000-h1000.json';
 import Button from '../shared/components/button/button';
 
 const HEADER_TEXT = {
@@ -74,13 +77,77 @@ const Home: React.FC = () => {
                     />
                     <div className='home__body__card-container'>
                         <div className='home__body__card-1'>
-
+                            <Lottie options={{...defaultOptions, animationData: card1Data}}
+                                height={120}
+                                width={120}
+                                speed={10}
+                                isClickToPauseDisabled
+                            />
+                            <div className='body__card__content-container'>
+                                <div className='body__card__header'>
+                                    <Text
+                                        text='Track your progress'
+                                        color='#4B37FF'
+                                        fontSize={24}
+                                    />
+                                </div>
+                                <div className='body__card__description'>
+                                    <Text
+                                        text='View all pending and completed courses in your dashboard, anytime, anywhere'
+                                        color='#4B37FF'
+                                        fontSize={14}
+                                    />
+                                </div>
+                            </div>
+                            
                         </div>
                         <div className='home__body__card-2'>
-
+                            <div className='body__card__content-container '>
+                                <Lottie options={{...defaultOptions, animationData: card2Data}}
+                                    height={120}
+                                    width={120}
+                                    speed={10}
+                                    isClickToPauseDisabled
+                                />
+                                <div className='body__card__header'>
+                                    <Text
+                                        text='Interactive Exercises'
+                                        color='white'
+                                        fontSize={24}
+                                    />
+                                </div>
+                                <div className='body__card__description'>
+                                    <Text
+                                        text='Don’t just watch from the sidelines. Play along with every exercise.'
+                                        color='white'
+                                        fontSize={14}
+                                    />
+                                </div>
+                            </div>
                         </div>
                         <div className='home__body__card-3'>
-
+                            <div className='body__card__content-container '>
+                                <Lottie options={{...defaultOptions, animationData: card3Data}}
+                                    height={120}
+                                    width={120}
+                                    speed={10}
+                                    isClickToPauseDisabled
+                                />
+                                <div className='body__card__header'>
+                                    <Text
+                                        text='Tons of Lessons'
+                                        color='#4B37FF'
+                                        fontSize={24}
+                                    />
+                                </div>
+                                <div className='body__card__description'>
+                                    <Text
+                                        text='Go from beginner to expert. Replay lessons at your leisure.'
+                                        color='#4B37FF'
+                                        fontSize={14}
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
