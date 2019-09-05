@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { Component } from 'react';
 import CoursePanel from './components/course-panel/course-panel';
 import './curriculum.css';
 import CourseDashboard from './components/course-dashboard/course-dashboard';
+import { connect } from 'react-redux';
+import { loadCourses } from '../../actions';
 
-const Curriculum: React.FC = () => {
-    return (
-        <div className='curriculum'>
-            <CourseDashboard />
-            <CoursePanel />
-        </div>
-    );
+class Curriculum extends Component {
+
+    render() {
+        return (
+            <div className='curriculum'>
+                <CourseDashboard />
+                <CoursePanel />
+            </div>
+        );
+    }
 }
 
-export default Curriculum;
+export default connect(null, { loadCourses })(Curriculum);

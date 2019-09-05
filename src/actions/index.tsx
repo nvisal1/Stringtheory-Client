@@ -1,4 +1,4 @@
-import { LOGIN, REQUEST, SET_AUTH_ERROR, REGISTER } from './constants';
+import { LOGIN, REQUEST, SET_AUTH_ERROR, REGISTER, LOAD_COURSES_REQUEST, SET_COURSES, SET_COURSE_ERROR } from './constants';
 import server from '../shared/server';
 import { LoginParams, UserInfo, RegisterParams } from '../shared/interfaces';
 import { ThunkAction } from 'redux-thunk';
@@ -60,6 +60,27 @@ export function register(
             dispatch({
                 type: SET_AUTH_ERROR,
                 error: message,
+            });
+        }
+    }
+}
+
+export function loadCourses(): ThunkAction<Promise<void>, {}, {}, AnyAction> {
+    return async function (dispatch) {
+        dispatch({
+            type: LOAD_COURSES_REQUEST,
+        });
+        try {
+            const response = await server.get('/courses');
+            const courses = response.data;
+            dispatch({
+                type: SET_COURSES,
+                courses,
+            });
+        } catch(error) {
+            dispatch({
+                type: SET_COURSE_ERROR,
+                error: 'Courses could not be loaded at this time. Please try again later.',
             });
         }
     }

@@ -15,3 +15,9 @@ export interface UserInfo {
     Name: string;
     Email: string;
 }
+
+export interface Course {
+    ID: string;
+    Name: string;
+    Description: string;
+}
