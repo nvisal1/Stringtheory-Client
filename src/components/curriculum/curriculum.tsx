@@ -4,17 +4,48 @@ import './curriculum.css';
 import CourseDashboard from './components/course-dashboard/course-dashboard';
 import { connect } from 'react-redux';
 import { loadCourses } from '../../actions';
+import { Course } from '../../shared/interfaces';
+import courses from '../../reducers/courses';
 
-class Curriculum extends Component {
+interface CurriculumState {
+    selectedCourse: Course,
+}
+
+interface CurriculumProps {
+    courses: Course[];
+    isLoading: boolean;
+    error: string;
+}
+
+class Curriculum extends Component<any, CurriculumState> {
+
+    componentDidMount() {
+        this.props.loadCourses();
+    }
+
+    handleSelectCourse = (course: Course) => {
+        this.setState({ selectedCourse: course });
+    }
 
     render() {
         return (
             <div className='curriculum'>
-                <CourseDashboard />
-                <CoursePanel />
+                <CourseDashboard 
+                    onSelectCourse={this.handleSelectCourse} 
+                    courses={this.props.courses}
+                />
+                <CoursePanel/>
             </div>
         );
     }
 }
 
-export default connect(null, { loadCourses })(Curriculum);
+const mapStateToProps = (state: any) => {
+    return {
+        courses: state.courses.courses,
+        isLoading: state.courses.isLoading,
+        error: state.courses.error,
+    }
+};
+
+export default connect(mapStateToProps, { loadCourses })(Curriculum);
