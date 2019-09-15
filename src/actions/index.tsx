@@ -1,4 +1,4 @@
-import { LOGIN, REQUEST, SET_AUTH_ERROR, REGISTER, LOAD_COURSES_REQUEST, SET_COURSES, SET_COURSE_ERROR } from './constants';
+import { LOGIN, REQUEST, SET_AUTH_ERROR, REGISTER, LOAD_COURSES_REQUEST, SET_COURSES, SET_COURSE_ERROR, LOGOUT } from './constants';
 import server from '../shared/server';
 import { LoginParams, UserInfo, RegisterParams } from '../shared/interfaces';
 import { ThunkAction } from 'redux-thunk';
@@ -69,6 +69,15 @@ export function register(
                 error: message,
             });
         }
+    }
+}
+
+export function logout(): ThunkAction<Promise<void>, {}, {}, AnyAction> {
+    return async function(dispatch) {
+        sessionStorage.removeItem('Token');
+        dispatch({
+            type: LOGOUT,
+        });
     }
 }
 

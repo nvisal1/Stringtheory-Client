@@ -9,7 +9,7 @@ import Home from './home/pages/home';
 import Login from './auth/pages/login/login';
 import Register from './auth/pages/register/register';
 import history from '../history';
-import { Navbar } from './shared/components/navbar/navbar';
+import Navbar from './shared/components/navbar/navbar';
 import Curriculum from './curriculum/curriculum';
 import Exercise from './exercise/exercise';
 import { mapDispatchToProps } from '../actions';
