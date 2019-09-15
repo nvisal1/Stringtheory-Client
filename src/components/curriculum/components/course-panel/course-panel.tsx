@@ -2,28 +2,43 @@ import React from 'react';
 import './course-panel.css';
 import CourseTitle from '../components/course-title/course-title';
 import CourseDescription from '../components/course-description/course-description';
+import { Course, Lesson } from '../../../../shared/interfaces';
+import { DashboardCourse } from '../../curriculum';
 import CourseLesson from '../components/course-lesson/course-lesson';
 
 interface CoursePanelProps { 
-    title: string;
-    description: string;
-    exercises: string[];
+    onSelectLesson: Function;
+    selectedCourse: DashboardCourse;
 }
 
-const CoursePanel: React.FC = props => {
+const renderCourseLessons = (props: CoursePanelProps) => {
+    const courseLessons = props.selectedCourse.Lessons.map(lesson => {
+        return (
+            <div className='course-lesson-container'>
+                <CourseLesson 
+                    onSelectLesson={ props.onSelectLesson }
+                    lesson={ lesson }
+                />
+            </div>
+        );
+    });
+    return courseLessons;
+}
+
+const CoursePanel: React.FC<CoursePanelProps> = props => {
     return (
         <div className='course-panel'>
             <div className='course-panel__course-title-container'>
                 <CourseTitle 
-                    title='Course Title'
+                    title={ props.selectedCourse.Name }
                 />
             </div>
-           <div className='course-panel__course-description-container'>
+            <div className='course-panel__course-description-container'>
                 <CourseDescription 
-                    description='Course description that is really long'
+                    description={ props.selectedCourse.Description }
                 />
-           </div>
-            <CourseLesson />
+            </div>
+            { renderCourseLessons(props) }
         </div>
     )
 }

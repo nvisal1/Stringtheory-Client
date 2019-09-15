@@ -20,4 +20,25 @@ export interface Course {
     ID: string;
     Name: string;
     Description: string;
+    LessonsURI: string;
+}
+
+export interface Lesson {
+    ID: string;
+	Name: string
+	Order: number;
+	Description: string;
+    CourseId: string;
+    ExercisesURI: string;
+	HasNext: boolean;
+}
+
+export interface Exercise {
+    ID: string;
+	Name: string;
+	Order: number;
+	Notes: string[];
+	Description: string;
+	LessonId: string;
+	HasNext: boolean;
 }

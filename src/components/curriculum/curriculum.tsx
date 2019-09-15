@@ -4,12 +4,8 @@ import './curriculum.css';
 import CourseDashboard from './components/course-dashboard/course-dashboard';
 import { connect } from 'react-redux';
 import { loadCourses } from '../../actions';
-import { Course } from '../../shared/interfaces';
-import courses from '../../reducers/courses';
-
-interface CurriculumState {
-    selectedCourse: Course,
-}
+import { Course, Lesson, Exercise } from '../../shared/interfaces';
+import server from '../../shared/server';
 
 interface CurriculumProps {
     courses: Course[];
@@ -17,24 +13,86 @@ interface CurriculumProps {
     error: string;
 }
 
+export interface DashboardLesson extends Lesson {
+    Exercises: Exercise[];
+}
+
+export interface DashboardCourse extends Course {
+    Lessons: DashboardLesson[];
+}
+interface CurriculumState {
+    selectedCourse: DashboardCourse,
+}
+
 class Curriculum extends Component<any, CurriculumState> {
+
+    constructor(props: any) {
+        super(props);
+
+        this.state = {
+          selectedCourse: {
+              ID: '',
+              Name: '',
+              Description: '',
+              LessonsURI: '',
+              Lessons: [],
+          }
+        }
+    }
 
     componentDidMount() {
         this.props.loadCourses();
     }
 
-    handleSelectCourse = (course: Course) => {
-        this.setState({ selectedCourse: course });
+    handleSelectCourse = async(course: Course) => {
+        const lessons = await this.getCourseLessons(course.LessonsURI);
+        const dashboardLessons = lessons.map(l => this.mapLesssontoDashboardLesson(l));
+        this.setState({ selectedCourse: { ...course, Lessons: dashboardLessons } });
+    }
+
+    mapLesssontoDashboardLesson = (lesson: Lesson) => {
+        return { ...lesson, Exercises: [] }
+    }
+
+    handleSelectLesson = async(selectedLesson: Lesson) => {
+        const exercises = await this.getLessonExercises(selectedLesson.ExercisesURI);
+        const selectedCourseLessons = this.state.selectedCourse.Lessons;
+        selectedCourseLessons.forEach(lesson => {
+            if (lesson.ID === selectedLesson.ID) {
+                if (exercises) {
+                    lesson.Exercises = exercises;
+                } else {
+                    lesson.Exercises = [];
+                }
+            }
+        });
+        this.setState({ selectedCourse: { 
+            ...this.state.selectedCourse,
+            Lessons: selectedCourseLessons,
+        }});
+    }
+
+    async getCourseLessons(lessonsURI: string): Promise<DashboardLesson[]> {
+        const response = await server.get(lessonsURI);
+        return response.data;
+    }
+
+    async getLessonExercises(exercisesURI: string): Promise<Exercise[]> {
+        const response = await server.get(exercisesURI);
+        return response.data;
     }
 
     render() {
         return (
             <div className='curriculum'>
                 <CourseDashboard 
-                    onSelectCourse={this.handleSelectCourse} 
-                    courses={this.props.courses}
+                    onSelectCourse={ this.handleSelectCourse } 
+                    courses={ this.props.courses }
                 />
-                <CoursePanel/>
+                <CoursePanel
+                    onSelectLesson={ this.handleSelectLesson }
+                    selectedCourse={ this.state.selectedCourse }
+                />
             </div>
         );
     }

@@ -12,13 +12,17 @@ const renderCourseCards = (props: CoursesProps) => {
         return (
             <div 
                 className='courses__cards__card'
-                onClick={ () => props.onSelectCourse(course)}
+                onClick={ () => props.onSelectCourse(course) }
             >
                 { course.Name }
             </div>
         );
     });
-    return cards;
+    return (
+        <div className='courses__cards'>
+            { cards }
+        </div>
+    );
 };
 
 const Courses: React.FC<CoursesProps> = props => {
