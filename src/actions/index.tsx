@@ -4,6 +4,7 @@ import { LoginParams, UserInfo, RegisterParams } from '../shared/interfaces';
 import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import decode from 'jwt-decode';
+import history from '../history';
 
 interface TokenData {
     user: UserInfo;
@@ -24,6 +25,9 @@ export function login(
                 type: LOGIN,
                 userInfo: tokenData.user,
             });
+            if (response.status === 200) {
+                history.push('/curriculum');
+            }
         } catch(error) {
             let message = 'An error occured';
             if (error.response.status === 401) {
@@ -52,6 +56,9 @@ export function register(
                 type: REGISTER,
                 userInfo: tokenData.user,
             });
+            if (response.status === 200) {
+                history.push('/curriculum');
+            }
         } catch(error) {
             let message = 'An error occured';
             if (error.response.status === 401) {
