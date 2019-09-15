@@ -108,7 +108,7 @@ const mapStateToProps = (state: any) => {
         courses: state.courses.courses,
         isLoading: state.courses.isLoading,
         error: state.courses.error,
-    }
+    };
 };
 
 export default connect(mapStateToProps, { loadCourses, selectExercise })(Curriculum);

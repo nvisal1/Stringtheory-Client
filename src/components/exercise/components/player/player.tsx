@@ -4,13 +4,18 @@ import Text from '../../../shared/components/text/text';
 import Strings from './components/strings/strings';
 import StatBox from './components/statbox/statbox';
 import Button from '../../../shared/components/button/button';
+import { Exercise } from '../../../../shared/interfaces';
 
-const Player: React.FC = () => {
+interface PlayerProps {
+    exercise: Exercise;
+}
+
+const Player: React.FC<PlayerProps> = props => {
     return (
         <div className='player'>
             <div className='player__text-container'>
                 <Text 
-                    text='Play an A note'
+                    text={ props.exercise.Name }
                     color='white'
                     fontSize={48}
                 />
