@@ -8,20 +8,21 @@ import { Link } from 'react-router-dom';
 
 interface CourseLessonProps {
     onSelectLesson: Function;
+    onSelectExercise: Function;
     lesson: DashboardLesson;
 }
 
 const renderExerciseLessons = (props: CourseLessonProps) => {
     const exerciseLessons = props.lesson.Exercises.map(exercise => {
         return (
-            <Link to='/exercise' style={{ textDecoration: 'none' }}>
-                <div className='course-lesson__lesson-exercise-container'>
-                    <LessonExercise 
-                        exercise={ exercise }
-                    />
-                </div>
-            </Link>
-            
+            <div 
+                className='course-lesson__lesson-exercise-container'
+                onClick={ () => props.onSelectExercise(exercise) }
+            >
+                <LessonExercise 
+                    exercise={ exercise }
+                />
+            </div>
         );
     });
     return exerciseLessons;

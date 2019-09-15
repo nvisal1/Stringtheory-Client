@@ -8,6 +8,7 @@ import CourseLesson from '../components/course-lesson/course-lesson';
 
 interface CoursePanelProps { 
     onSelectLesson: Function;
+    onSelectExercise: Function;
     selectedCourse: DashboardCourse;
 }
 
@@ -17,6 +18,7 @@ const renderCourseLessons = (props: CoursePanelProps) => {
             <div className='course-lesson-container'>
                 <CourseLesson 
                     onSelectLesson={ props.onSelectLesson }
+                    onSelectExercise={ props.onSelectExercise }
                     lesson={ lesson }
                 />
             </div>

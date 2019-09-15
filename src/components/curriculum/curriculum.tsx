@@ -3,7 +3,7 @@ import CoursePanel from './components/course-panel/course-panel';
 import './curriculum.css';
 import CourseDashboard from './components/course-dashboard/course-dashboard';
 import { connect } from 'react-redux';
-import { loadCourses } from '../../actions';
+import { loadCourses, selectExercise} from '../../actions';
 import { Course, Lesson, Exercise } from '../../shared/interfaces';
 import server from '../../shared/server';
 
@@ -72,6 +72,10 @@ class Curriculum extends Component<any, CurriculumState> {
         }});
     }
 
+    handleSelectExericse = async(selectedExercise: Exercise) => {
+        this.props.selectExercise(selectedExercise);
+    }
+
     async getCourseLessons(lessonsURI: string): Promise<DashboardLesson[]> {
         const response = await server.get(lessonsURI);
         return response.data;
@@ -90,6 +94,7 @@ class Curriculum extends Component<any, CurriculumState> {
                     courses={ this.props.courses }
                 />
                 <CoursePanel
+                    onSelectExercise={ this.handleSelectExericse }
                     onSelectLesson={ this.handleSelectLesson }
                     selectedCourse={ this.state.selectedCourse }
                 />
@@ -106,4 +111,4 @@ const mapStateToProps = (state: any) => {
     }
 };
 
-export default connect(mapStateToProps, { loadCourses })(Curriculum);
+export default connect(mapStateToProps, { loadCourses, selectExercise })(Curriculum);

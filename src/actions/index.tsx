@@ -1,6 +1,6 @@
-import { LOGIN, REQUEST, SET_AUTH_ERROR, REGISTER, LOAD_COURSES_REQUEST, SET_COURSES, SET_COURSE_ERROR, LOGOUT } from './constants';
+import { LOGIN, REQUEST, SET_AUTH_ERROR, REGISTER, LOAD_COURSES_REQUEST, SET_COURSES, SET_COURSE_ERROR, LOGOUT, SELECT_EXERCISE } from './constants';
 import server from '../shared/server';
-import { LoginParams, UserInfo, RegisterParams } from '../shared/interfaces';
+import { LoginParams, UserInfo, RegisterParams, Exercise } from '../shared/interfaces';
 import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import decode from 'jwt-decode';
@@ -99,6 +99,16 @@ export function loadCourses(): ThunkAction<Promise<void>, {}, {}, AnyAction> {
                 error: 'Courses could not be loaded at this time. Please try again later.',
             });
         }
+    }
+}
+
+export function selectExercise(exercise: Exercise): ThunkAction<Promise<void>, {}, {}, AnyAction> {
+    return async function(dispatch) {
+        dispatch({
+            type: SELECT_EXERCISE,
+            exercise,
+        });
+        history.push('/exercise');
     }
 }
 
