@@ -3,6 +3,7 @@ import './action.css';
 import Text from '../../../shared/components/text/text';
 import Button from '../../../shared/components/button/button';
 import bottom from '../../../shared/images/home-body-background-bottom.png';
+import { Link } from 'react-router-dom';
 
 const ACTION_TEXT = {
     prompt: 'For those about to rock...',
@@ -25,14 +26,16 @@ const Action: React.FC = () => {
                 />
             </div>
             <div className='action__button'>
-                <Button 
-                    text={ACTION_TEXT.button}
-                    height={86}
-                    width={300}
-                    backgroundColor='#4B37FF'
-                    fontColor='white'
-                    fontSize={24}
-                />
+                <Link to='/register' style={{ textDecoration: 'none' }}>
+                    <Button 
+                        text={ACTION_TEXT.button}
+                        height={86}
+                        width={300}
+                        backgroundColor='#4B37FF'
+                        fontColor='white'
+                        fontSize={24}
+                    />
+                </Link>
             </div>
         </div>
     );
