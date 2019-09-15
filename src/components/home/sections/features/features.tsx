@@ -65,6 +65,9 @@ const Features: React.FC = () => {
                     fontSize={48}
                 />
             </div>
+            <div className='example-space'>
+
+            </div>
             <div className='features__feature-container'>
                 <img 
                     className='features__feature-container__image'
