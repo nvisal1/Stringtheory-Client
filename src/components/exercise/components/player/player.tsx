@@ -24,7 +24,9 @@ const Player: React.FC<PlayerProps> = props => {
                 <Strings />
             </div>
             <div className='player__stat-box-container'>
-                <StatBox />
+                <StatBox 
+                    notes={ props.exercise.Notes }
+                />
             </div>
             <div className='player__button-container'>
                 <Button 
