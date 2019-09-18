@@ -8,6 +8,8 @@ import { Exercise } from '../../../../shared/interfaces';
 
 interface PlayerProps {
     exercise: Exercise;
+    playedNote: string;
+    playedNotesList: string[];
 }
 
 const Player: React.FC<PlayerProps> = props => {
@@ -26,6 +28,8 @@ const Player: React.FC<PlayerProps> = props => {
             <div className='player__stat-box-container'>
                 <StatBox 
                     notes={ props.exercise.Notes }
+                    playedNote={ props.playedNote }
+                    playedNotesList={ props.playedNotesList }
                 />
             </div>
             <div className='player__button-container'>
