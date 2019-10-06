@@ -104,6 +104,7 @@ export function loadCourses(): ThunkAction<Promise<void>, {}, {}, AnyAction> {
 
 export function selectExercise(exercise: Exercise): ThunkAction<Promise<void>, {}, {}, AnyAction> {
     return async function(dispatch) {
+        localStorage.setItem('SelectedExercise', JSON.stringify(exercise));
         dispatch({
             type: SELECT_EXERCISE,
             exercise,

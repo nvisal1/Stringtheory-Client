@@ -31,7 +31,6 @@ export default (state = INITIAL_STATE, action: any) => {
                 courses: [],
             });
         case SELECT_EXERCISE:
-            console.log(action);
             return({
                 ...state,
                 selectedExercise: action.exercise,

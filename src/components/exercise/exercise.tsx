@@ -12,7 +12,6 @@ interface ExerciseState {
 
 const socket = new WebSocket('ws://localhost:5000/play');
 
-
 class Exercise extends Component<any, ExerciseState> {
 
     constructor(props: any) {
@@ -57,6 +56,14 @@ class Exercise extends Component<any, ExerciseState> {
 }
 
 const mapStateToProps = (state: any) => {
+    if (!state.courses.length) {
+        const exercise = localStorage.getItem('SelectedExercise');
+        if (exercise) {
+            return {
+                exercise: JSON.parse(exercise),
+            };
+        }
+    }
     return {
         exercise: state.courses.selectedExercise as IExercise,
     };

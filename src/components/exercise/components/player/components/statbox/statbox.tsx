@@ -33,7 +33,7 @@ const renderPlayedNotesList = (playedNote: string, playedNotesList: string[]) =>
     });
     spacedNotes.push(
         <div className='stat-box__played-notes__note'>
-            { playedNote}
+            { playedNote }
         </div>
     );
     return (
