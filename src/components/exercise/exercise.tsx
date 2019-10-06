@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import './exercise.css';
 import Player from './components/player/player';
 import { connect } from 'react-redux';
+import { Exercise as IExercise } from '../../shared/interfaces';
 
 interface ExerciseState {
-    exercise: Exercise;
+    exercise: IExercise;
     playedNote: string;
     playedNotesList: string[];
 }
@@ -17,7 +18,7 @@ class Exercise extends Component<any, ExerciseState> {
     constructor(props: any) {
         super(props);
         this.state = {
-            exercise: {} as Exercise,
+            exercise: {} as IExercise,
             playedNote: '',
             playedNotesList: [],
         };
@@ -34,7 +35,7 @@ class Exercise extends Component<any, ExerciseState> {
     }
 
     render() {
-        console.log(this.state);
+        this.incrementNotePosition();
         return (
             <div className='exercise'>
                 <div className='exercise__player-container'>
@@ -47,11 +48,17 @@ class Exercise extends Component<any, ExerciseState> {
             </div>
         )
     }
+    
+    incrementNotePosition() {
+        if (this.props.exercise.Notes[this.state.playedNotesList.length] === this.state.playedNote) {
+            this.state.playedNotesList.push(this.state.playedNote);
+        }
+    }
 }
 
 const mapStateToProps = (state: any) => {
     return {
-        exercise: state.courses.selectedExercise,
+        exercise: state.courses.selectedExercise as IExercise,
     };
 }
 
