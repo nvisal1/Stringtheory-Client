@@ -24,7 +24,7 @@ const FormAnimation = posed.div({
         opacity: 1,
         delay: 300,
         transition: {
-          y: { type: 'spring', stiffness: 1000, damping: 15 },
+          y: { type: 'spring', stiffness: 300, damping: 12 },
           default: { duration: 300 }
         }
     },
@@ -54,15 +54,15 @@ class Login extends Component<any, any> {
         return (
             <div className='login'>
                 <div className='login__card'>
-                    <div className='login__card__header'>
-                        <Text 
-                            text={HEADER_TEXT}
-                            color='#6769EC'
-                            fontSize={48}
-                        />
-                    </div>
-                    {renderHeaderError(this.props.authError)}
                     <FormAnimation pose={ this.state.isVisible ? 'enter' : 'exit'}>
+                        <div className='login__card__header'>
+                            <Text 
+                                text={HEADER_TEXT}
+                                color='#6769EC'
+                                fontSize={48}
+                            />
+                        </div>
+                        {renderHeaderError(this.props.authError)}
                         <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
                             <div className='login__card__input-fields-container'>
                                 <div className='input-fields__input-container'>

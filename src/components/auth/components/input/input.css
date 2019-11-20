@@ -4,6 +4,7 @@
     width: 550px;
     border-radius: 50px;
     margin: auto;
+    text-align: left;
 }
 
 .input__element {

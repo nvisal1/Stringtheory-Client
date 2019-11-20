@@ -18,14 +18,14 @@ export function login(
             type: REQUEST,
         });
         try {
-            const response = await server.post('/login', params);
+            const response = await server().post('/login', params);
             const tokenData: TokenData = decode(response.data.Token);
-            sessionStorage.setItem('Token', response.data.Token);
             dispatch({
                 type: LOGIN,
                 userInfo: tokenData.user,
             });
             if (response.status === 200) {
+                sessionStorage.setItem('Token', response.data.Token);
                 history.push('/curriculum');
             }
         } catch(error) {
@@ -49,7 +49,7 @@ export function register(
             type: REQUEST,
         });
         try {
-            const response = await server.post('/register', params);
+            const response = await server().post('/register', params);
             const tokenData: TokenData = decode(response.data.Token);
             sessionStorage.setItem('Token', response.data.Token);
             dispatch({
@@ -87,7 +87,7 @@ export function loadCourses(): ThunkAction<Promise<void>, {}, {}, AnyAction> {
             type: LOAD_COURSES_REQUEST,
         });
         try {
-            const response = await server.get('/courses');
+            const response = await server().get('/courses');
             const courses = response.data;
             dispatch({
                 type: SET_COURSES,

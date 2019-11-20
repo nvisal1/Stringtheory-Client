@@ -77,12 +77,12 @@ class Curriculum extends Component<any, CurriculumState> {
     }
 
     async getCourseLessons(lessonsURI: string): Promise<DashboardLesson[]> {
-        const response = await server.get(lessonsURI);
+        const response = await server().get(lessonsURI);
         return response.data;
     }
 
     async getLessonExercises(exercisesURI: string): Promise<Exercise[]> {
-        const response = await server.get(exercisesURI);
+        const response = await server().get(exercisesURI);
         return response.data;
     }
 
