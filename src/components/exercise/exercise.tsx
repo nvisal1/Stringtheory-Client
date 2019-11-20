@@ -10,7 +10,7 @@ interface ExerciseState {
     playedNotesList: string[];
 }
 
-const socket = new WebSocket('ws://localhost:5000/play');
+const socket = new WebSocket('ws://footnotewebsocketapi-env.gka3idb9wm.us-east-1.elasticbeanstalk.com/play');
 
 class Exercise extends Component<any, ExerciseState> {
 
