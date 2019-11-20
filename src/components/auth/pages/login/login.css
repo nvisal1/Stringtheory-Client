@@ -18,6 +18,7 @@
     height: 875px;
     width: 678px;
     border-top-right-radius: 50px;
+    text-align: center;
 }
 
 .login__card__header {
@@ -40,8 +41,4 @@
 .login__card-alternate-text-container {
     margin-top: 20px;
     text-align: center;
-}
-
-.lottie {
-    background-color: black;
 }
