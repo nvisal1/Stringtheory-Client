@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import { renderHeaderError, renderInput } from '../../functions';
 import { validate } from '../../form-validators';
 import { mapStateToProps } from '../../functions/mapStateToProps/mapStateToProps';
-import posed, { PoseGroup } from 'react-pose';
+import posed from 'react-pose';
 
 const HEADER_TEXT = 'Login';
 
@@ -40,7 +40,7 @@ class Login extends Component<any, any> {
     state = { isVisible: false };
 
     componentDidMount() {
-        this.setState({isVisible: true});
+        this.setState({ isVisible: true });
     }
 
     onSubmit = (formValues: any) => {

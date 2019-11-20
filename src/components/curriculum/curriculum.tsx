@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 import { loadCourses, selectExercise} from '../../actions';
 import { Course, Lesson, Exercise } from '../../shared/interfaces';
 import server from '../../shared/server';
+import posed from 'react-pose';
+import { linear, circIn } from '@popmotion/easing';
 
 interface CurriculumProps {
     courses: Course[];
@@ -22,7 +24,40 @@ export interface DashboardCourse extends Course {
 }
 interface CurriculumState {
     selectedCourse: DashboardCourse,
+    isVisible: boolean,
+    isFinished: boolean,
 }
+
+const CircleAnimation = posed.div({
+    enter: {
+        scale: 50,
+        transition: {
+            ease: 'linear',
+            duration: 1000,
+        },
+    },
+    exit: {
+        y: 450,
+        scale: 1,
+    }
+});
+
+const ContentAnimation = posed.div({
+    enter: {
+        y: 0,
+        opacity: 1,
+        delay: 1000,
+        transition: {
+          y: { type: 'spring', stiffness: 300, damping: 20, duration: 1000 },
+          default: { duration: 300 },
+        },
+    },
+    exit: {
+        y: 30,
+        opacity: 0,
+        transition: { duration: 150 }
+      }
+});
 
 class Curriculum extends Component<any, CurriculumState> {
 
@@ -36,12 +71,18 @@ class Curriculum extends Component<any, CurriculumState> {
               Description: '',
               LessonsURI: '',
               Lessons: [],
-          }
+          },
+          isVisible: false,
+          isFinished: true,
         }
     }
 
     componentDidMount() {
         this.props.loadCourses();
+        this.setState({ isVisible: true });
+        setTimeout(() => {
+            this.setState({ isFinished: false });
+        }, 2000);
     }
 
     handleSelectCourse = async(course: Course) => {
@@ -88,16 +129,25 @@ class Curriculum extends Component<any, CurriculumState> {
 
     render() {
         return (
-            <div className='curriculum'>
-                <CourseDashboard 
-                    onSelectCourse={ this.handleSelectCourse } 
-                    courses={ this.props.courses }
-                />
-                <CoursePanel
-                    onSelectExercise={ this.handleSelectExericse }
-                    onSelectLesson={ this.handleSelectLesson }
-                    selectedCourse={ this.state.selectedCourse }
-                />
+            <div> 
+                {this.state.isFinished ?
+                    <CircleAnimation pose={ this.state.isVisible ? 'enter' : 'exit' }>
+                        <div className='circle'></div>
+                    </CircleAnimation> : <span></span>   
+                }  
+                <ContentAnimation pose={ this.state.isVisible ? 'enter' : 'exit' }>        
+                    <div className='curriculum'>
+                        <CourseDashboard 
+                            onSelectCourse={ this.handleSelectCourse } 
+                            courses={ this.props.courses }
+                        />
+                        <CoursePanel
+                            onSelectExercise={ this.handleSelectExericse }
+                            onSelectLesson={ this.handleSelectLesson }
+                            selectedCourse={ this.state.selectedCourse }
+                        />
+                    </div>   
+                </ContentAnimation> 
             </div>
         );
     }

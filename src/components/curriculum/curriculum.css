@@ -1,7 +1,18 @@
 .curriculum {
     background-color: #4B37FF;
-    height: 100%;
+    height: 100vh;
     width: 100%;
     position: fixed;
 }
 
+.circle {
+    background-color: #4B37FF;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    top: 50%;
+    margin-top: -50px;
+    border-radius: 50%;
+}
