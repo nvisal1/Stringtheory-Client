@@ -13,12 +13,12 @@ const Footnote: React.FC = () => {
     return (
         <div className='footnote'>
             <div className='footnote__animation-container'>
-                <Animation 
+                {/* <Animation 
                     animationData={ animationData }
                     height={ 800 }
                     width={ 800 }
                     speed={ 1 }
-                />
+                /> */}
             </div>
             <div className='footnote__text-container'>
                 <div className='footnote__text-container__header'>

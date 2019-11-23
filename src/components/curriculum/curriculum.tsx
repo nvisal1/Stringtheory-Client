@@ -7,7 +7,6 @@ import { loadCourses, selectExercise} from '../../actions';
 import { Course, Lesson, Exercise } from '../../shared/interfaces';
 import server from '../../shared/server';
 import posed from 'react-pose';
-import { linear, circIn } from '@popmotion/easing';
 
 interface CurriculumProps {
     courses: Course[];
@@ -37,7 +36,6 @@ const CircleAnimation = posed.div({
         },
     },
     exit: {
-        y: 450,
         scale: 1,
     }
 });
@@ -130,11 +128,13 @@ class Curriculum extends Component<any, CurriculumState> {
     render() {
         return (
             <div> 
-                {this.state.isFinished ?
-                    <CircleAnimation pose={ this.state.isVisible ? 'enter' : 'exit' }>
-                        <div className='circle'></div>
-                    </CircleAnimation> : <span></span>   
-                }  
+                <div className='animation-position'>
+                    {this.state.isFinished ?
+                        <CircleAnimation pose={ this.state.isVisible ? 'enter' : 'exit' }>
+                            <div className='animation-position__circle'></div>
+                        </CircleAnimation> : <span></span>   
+                    }  
+                </div>
                 <ContentAnimation pose={ this.state.isVisible ? 'enter' : 'exit' }>        
                     <div className='curriculum'>
                         <CourseDashboard 

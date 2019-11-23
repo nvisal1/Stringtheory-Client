@@ -11,6 +11,14 @@ const FEATURES_TEXT = {
     display: 'Learn electric guitar the right way',
 };
 
+const CUSTOMER_TEXT = {
+    andrew: 'This is awesome!',
+    tom: 'What?',
+    mom: `That's nice sweetie`,
+    nick: `Awesome UI, Stringtheory is the best thing ever`,
+    paige: `Stringtheory is the most compliant piece of software that I have ever used`
+}
+
 const cardMetaDataList: CardProps[]= [
     {
         animationData: card1Data,
@@ -66,7 +74,7 @@ const Features: React.FC = () => {
                 />
             </div>
             <div className='example-space'>
-
+        
             </div>
             <div className='features__feature-container'>
                 <img 

@@ -5,14 +5,17 @@
     position: fixed;
 }
 
-.circle {
-    background-color: #4B37FF;
-    height: 100px;
-    width: 100px;
+.animation-position {
     position: absolute;
     left: 50%;
     margin-left: -50px;
     top: 50%;
     margin-top: -50px;
+}
+
+.animation-position__circle {
+    background-color: #4B37FF;
+    height: 100px;
+    width: 100px;
     border-radius: 50%;
 }

@@ -10,3 +10,19 @@
     width: 50%;
     margin-top: 64px;
 }
+
+.exercise__wave-container {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    top: 50%;
+    margin-top: -50px;
+}
+
+.wave-container__wave {
+    background-color: transparent;
+    border: 3px solid #37FE9E;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
